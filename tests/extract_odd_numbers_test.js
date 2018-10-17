@@ -62,3 +62,4 @@ const testFibonacciSeries = function(input, output){
 testFibonacciSeries(0,[]);
 testFibonacciSeries(1,[0]);
 testFibonacciSeries(2,[0,1]);
+testFibonacciSeries(5,[0,1,1,2,3]);

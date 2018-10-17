@@ -45,8 +45,8 @@ exports.generateFibonacciSeries = function(numberOfTerms){
   for(let count = 1; count <= numberOfTerms; count++){
     let currentTerm = lastTerm + secondLastTerm;
     series.push(currentTerm);
-    lastTerm = currentTerm;
     secondLastTerm = lastTerm;
+    lastTerm = currentTerm;
   }
   return series;
 }
