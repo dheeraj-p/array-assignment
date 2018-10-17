@@ -3,6 +3,7 @@ const arrayLib = require("../libs/array_lib.js");
 
 const {extractElements} = arrayLib;
 const {generateFibonacciSeries} = arrayLib;
+const {generateReversedFibSeries} = arrayLib;
 const {extractAlternatingElements} = arrayLib;
 const {reverse} = arrayLib;
 const {sum} = arrayLib;
@@ -63,3 +64,14 @@ testFibonacciSeries(0,[]);
 testFibonacciSeries(1,[0]);
 testFibonacciSeries(2,[0,1]);
 testFibonacciSeries(5,[0,1,1,2,3]);
+
+//------------------------------Fibonacci series
+
+const testReversedFibSeries = function(input, output){
+  assert.deepEqual(generateReversedFibSeries(input),output);
+}
+
+testReversedFibSeries(0,[]);
+testReversedFibSeries(1,[0]);
+testReversedFibSeries(2,[1,0]);
+testReversedFibSeries(5,[3,2,1,1,0]);

@@ -1,5 +1,5 @@
 // Extract even and odd numbers from an array of numbers
-exports.extractElements = function(numbers, type){
+const extractElements = function(numbers, type){
   let extractedElements = {even : [], odd : []};
   let types = ["even", "odd"];
   for(let number of numbers){
@@ -11,7 +11,7 @@ exports.extractElements = function(numbers, type){
 }
 
 // Calculate the result of numbers in an array
-exports.sum = function(numbers){
+const sum = function(numbers){
   let result = 0;
   for(let number of numbers){
     result = result + number;
@@ -20,7 +20,7 @@ exports.sum = function(numbers){
 }
 
 // Reverse the order of an array
-exports.reverse = function(source){
+const reverse = function(source){
   let result = [];
   for(let index = source.length -1; index >= 0; index--){
     result.push(source[index]);
@@ -29,7 +29,7 @@ exports.reverse = function(source){
 }
 
 // Extract every second element from an array
-exports.extractAlternatingElements = function(elements){
+const extractAlternatingElements = function(elements){
   let extractedElements = [];
   for(let index = 0; index<elements.length; index += 2){
     extractedElements.push(elements[index]);
@@ -38,7 +38,7 @@ exports.extractAlternatingElements = function(elements){
 }
 
 // Create fibonacci series upto given limit
-exports.generateFibonacciSeries = function(numberOfTerms){
+const generateFibonacciSeries = function(numberOfTerms){
   let lastTerm = 1;
   let secondLastTerm = -1;
   let series = [];
@@ -50,3 +50,16 @@ exports.generateFibonacciSeries = function(numberOfTerms){
   }
   return series;
 }
+
+// Create a fibonacci series in reversed order
+const generateReversedFibSeries = function(numberOfTerms){
+  let series = generateFibonacciSeries(numberOfTerms);
+  return reverse(series);
+}
+
+exports.extractElements = extractElements;
+exports.sum = sum;
+exports.reverse = reverse;
+exports.extractAlternatingElements = extractAlternatingElements;
+exports.generateFibonacciSeries = generateFibonacciSeries;
+exports.generateReversedFibSeries = generateReversedFibSeries;
