@@ -3,6 +3,7 @@ const arrayLib = require("../libs/array_lib.js");
 
 const {extractElements} = arrayLib;
 const {countOdd} = arrayLib;
+const {countEven} = arrayLib;
 const {mapLengths} = arrayLib;
 const {calculateAverage} = arrayLib;
 const {extractElement} = arrayLib;
@@ -137,3 +138,16 @@ testCountOdd([1],1);
 testCountOdd([2],0);
 testCountOdd([2,3,4],1);
 testCountOdd([2,3,4,5,9,0],3);
+
+//--------------------------------Count even numbers
+
+const testCountEven = function(input, expectedOutput){
+  assert.equal(countEven(input), expectedOutput);
+}
+
+testCountEven([],0);
+testCountEven([1],0);
+testCountEven([2],1);
+testCountEven([2,3,4],2);
+testCountEven([2,3,4,5,9,0],3);
+

@@ -88,7 +88,14 @@ const countOdd = function(numbers){
   return oddNumbers.length;
 }
 
+// Count even numbers in an array
+const countEven = function(numbers){
+  let evenNumbers = extractElements(numbers, "even");
+  return evenNumbers.length;
+}
+
 exports.calculateAverage = calculateAverage;
+exports.countEven = countEven;
 exports.countOdd = countOdd;
 exports.mapLengths = mapLengths;
 exports.extractElements = extractElements;
