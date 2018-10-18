@@ -2,6 +2,8 @@ const assert = require("assert");
 const arrayLib = require("../libs/array_lib.js");
 
 const {extractElements} = arrayLib;
+const {calculateAverage} = arrayLib;
+const {extractElement} = arrayLib;
 const {generateFibonacciSeries} = arrayLib;
 const {generateReversedFibSeries} = arrayLib;
 const {extractAlternatingElements} = arrayLib;
@@ -75,3 +77,37 @@ testReversedFibSeries(0,[]);
 testReversedFibSeries(1,[0]);
 testReversedFibSeries(2,[1,0]);
 testReversedFibSeries(5,[3,2,1,1,0]);
+
+//------------------------------Greatest Number
+
+const testGreatestNumber = function(input, expectedOutput){
+  assert.equal(extractElement(input, Math.max), expectedOutput);
+}
+
+testGreatestNumber([], undefined);
+testGreatestNumber([1], 1);
+testGreatestNumber([1,2], 2);
+testGreatestNumber([3,2,1], 3);
+testGreatestNumber([3,2,1,45,99,-0], 99);
+
+const testSmallestNumber = function(input, expectedOutput){
+  assert.equal(extractElement(input, Math.min), expectedOutput);
+}
+
+testSmallestNumber([], undefined);
+testSmallestNumber([1], 1);
+testSmallestNumber([1,2], 1);
+testSmallestNumber([3,2,1], 1);
+testSmallestNumber([3,2,1,45,99,-0], 0);
+
+//--------------------------------Calculate Average
+
+const testAverage = function(input, expectedOutput){
+  assert.equal(calculateAverage(input), expectedOutput);
+}
+
+testAverage([1], 1);
+testAverage([0],0);
+testAverage([1,2],1.5);
+testAverage([4,2,10,20],9);
+testAverage([1,2,10,20],8.25);

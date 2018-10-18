@@ -57,9 +57,27 @@ const generateReversedFibSeries = function(numberOfTerms){
   return reverse(series);
 }
 
+// Find greatest number in a list
+const extractElement = function(numbers, selector){
+  let previousElement = numbers[0];
+  for(let index = 1; index < numbers.length;index++){
+    let currentElement = numbers[index];
+    previousElement = selector(previousElement, currentElement);
+  }
+  return previousElement;
+}
+
+// Calculate average of given numbers
+const calculateAverage = function(numbers){
+  let numberOfElements = numbers.length;
+  return sum(numbers)/numberOfElements;
+}
+
+exports.calculateAverage = calculateAverage;
 exports.extractElements = extractElements;
 exports.sum = sum;
 exports.reverse = reverse;
 exports.extractAlternatingElements = extractAlternatingElements;
 exports.generateFibonacciSeries = generateFibonacciSeries;
+exports.extractElement = extractElement;
 exports.generateReversedFibSeries = generateReversedFibSeries;
