@@ -2,6 +2,7 @@ const assert = require("assert");
 const arrayLib = require("../libs/array_lib.js");
 
 const {extractElements} = arrayLib;
+const {countOdd} = arrayLib;
 const {mapLengths} = arrayLib;
 const {calculateAverage} = arrayLib;
 const {extractElement} = arrayLib;
@@ -124,3 +125,15 @@ testMapping([""],[0]);
 testMapping(["a"],[1]);
 testMapping(["a", "ab", "abc"],[1,2,3]);
 testMapping(["a", "ab", "abc","", "something"],[1,2,3,0,9]);
+
+//--------------------------------Count odd numbers
+
+const testCountOdd = function(input, expectedOutput){
+  assert.equal(countOdd(input), expectedOutput);
+}
+
+testCountOdd([],0);
+testCountOdd([1],1);
+testCountOdd([2],0);
+testCountOdd([2,3,4],1);
+testCountOdd([2,3,4,5,9,0],3);

@@ -73,6 +73,7 @@ const calculateAverage = function(numbers){
   return sum(numbers)/numberOfElements;
 }
 
+// Map the lengths of strings in a source array.
 const mapLengths = function(source){
   let lengths = [];
   for(let element of source){
@@ -81,7 +82,14 @@ const mapLengths = function(source){
   return lengths;
 }
 
+// Count odd numbers in an array
+const countOdd = function(numbers){
+  let oddNumbers = extractElements(numbers, "odd");
+  return oddNumbers.length;
+}
+
 exports.calculateAverage = calculateAverage;
+exports.countOdd = countOdd;
 exports.mapLengths = mapLengths;
 exports.extractElements = extractElements;
 exports.sum = sum;
