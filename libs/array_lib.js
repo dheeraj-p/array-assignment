@@ -73,7 +73,16 @@ const calculateAverage = function(numbers){
   return sum(numbers)/numberOfElements;
 }
 
+const mapLengths = function(source){
+  let lengths = [];
+  for(let element of source){
+    lengths.push(element.length);
+  }
+  return lengths;
+}
+
 exports.calculateAverage = calculateAverage;
+exports.mapLengths = mapLengths;
 exports.extractElements = extractElements;
 exports.sum = sum;
 exports.reverse = reverse;

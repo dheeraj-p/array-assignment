@@ -2,6 +2,7 @@ const assert = require("assert");
 const arrayLib = require("../libs/array_lib.js");
 
 const {extractElements} = arrayLib;
+const {mapLengths} = arrayLib;
 const {calculateAverage} = arrayLib;
 const {extractElement} = arrayLib;
 const {generateFibonacciSeries} = arrayLib;
@@ -111,3 +112,15 @@ testAverage([0],0);
 testAverage([1,2],1.5);
 testAverage([4,2,10,20],9);
 testAverage([1,2,10,20],8.25);
+
+//--------------------------------Mapping length of string
+
+const testMapping = function(input, expectedOutput){
+  assert.deepEqual(mapLengths(input), expectedOutput);
+}
+
+testMapping([],[]);
+testMapping([""],[0]);
+testMapping(["a"],[1]);
+testMapping(["a", "ab", "abc"],[1,2,3]);
+testMapping(["a", "ab", "abc","", "something"],[1,2,3,0,9]);
