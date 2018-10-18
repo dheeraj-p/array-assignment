@@ -1,5 +1,1 @@
-1. Put "let" inside a for loop.
-2. Change name of variable "categories" maybe to "type".
-3. Use destructuring to import functions from library.
-4. Extract function to reduce duplicacy in testing.
-5. Change "choice" to "type".
+Refactor code again after writing whole library.
