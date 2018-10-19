@@ -2,6 +2,7 @@ const assert = require("assert");
 const arrayLib = require("../libs/array_lib.js");
 
 const {extractElements} = arrayLib;
+const {unique} = arrayLib;
 const {extractDigits} = arrayLib;
 const {isInAscendingOrder} = arrayLib;
 const {isInDescendingOrder} = arrayLib;
@@ -232,3 +233,15 @@ const testExtractDigits = function(input, expectedOutput){
 testExtractDigits(1, [1]);
 testExtractDigits(12, [1,2]);
 testExtractDigits(13025, [1,3,0,2,5]);
+
+//-------------------------------Extract unique elements
+
+const testUnique = function(input, expectedOutput){
+  assert.deepEqual(unique(input), expectedOutput);
+}
+
+testUnique([], []);
+testUnique([1], [1]);
+testUnique([1,2], [1,2]);
+testUnique([1,1,3,0,1,2,4,5,5,1], [1,3,0,2,4,5]);
+testUnique([1,1,1,1,1], [1]);

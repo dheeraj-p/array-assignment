@@ -157,7 +157,21 @@ const extractDigits = function(number){
   return digits;
 }
 
+// Get all unique elements from an array
+
+const unique = function(list){
+  let result = [];
+  for(element of list){
+    let isAlreadyPresent = result.includes(element);
+    if(!isAlreadyPresent){
+      result.push(element);
+    }
+  }
+  return result;
+}
+
 exports.calculateAverage = calculateAverage;
+exports.unique = unique;
 exports.extractDigits = extractDigits;
 exports.isInAscendingOrder = isInAscendingOrder;
 exports.isInDescendingOrder = isInDescendingOrder;
