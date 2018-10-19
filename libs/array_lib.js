@@ -203,7 +203,20 @@ const getDifference = function(firstSet, secondSet){
   return unique(differenceSet);
 }
 
+//Check if second set is proper subset of first set
+
+const isSubset = function(superSet, subsetCandidate){
+  for(let element of subsetCandidate){
+    let isPresentInSuperSet = superSet.includes(element);
+    if(!isPresentInSuperSet){
+      return false;
+    }
+  }
+  return true;
+}
+
 exports.calculateAverage = calculateAverage;
+exports.isSubset = isSubset;
 exports.getIntersection = getIntersection;
 exports.getDifference = getDifference;
 exports.union = union;

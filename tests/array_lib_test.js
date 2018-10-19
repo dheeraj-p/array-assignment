@@ -2,6 +2,7 @@ const assert = require("assert");
 const arrayLib = require("../libs/array_lib.js");
 
 const {extractElements} = arrayLib;
+const {isSubset} = arrayLib;
 const {getDifference} = arrayLib;
 const {getIntersection} = arrayLib;
 const {unique} = arrayLib;
@@ -284,3 +285,15 @@ testDifference([1], [1], []);
 testDifference([1,2], [1], [2]);
 testDifference([1,2,3], [1,3,3], [2]);
 testDifference([1,2,2,0,4,9,5,3,8], [1,3,3,5,3,0], [2,4,9,8]);
+
+//--------------------------------Check if second set is subset of first set
+
+const testIsSubset = function(firstSet,secondSet, expectedOutput){
+  assert.equal(isSubset(firstSet, secondSet), expectedOutput);
+}
+
+testIsSubset([], [], true);
+testIsSubset([1], [1], true);
+testIsSubset([1,2], [1], true);
+testIsSubset([1,2,3], [1,2,4], false);
+testIsSubset([1,2,2,0,4,9,5,3,8], [1,3,10,5,3,0], false);
