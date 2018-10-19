@@ -3,6 +3,7 @@ const arrayLib = require("../libs/array_lib.js");
 
 const {extractElements} = arrayLib;
 const {unique} = arrayLib;
+const {union} = arrayLib;
 const {extractDigits} = arrayLib;
 const {isInAscendingOrder} = arrayLib;
 const {isInDescendingOrder} = arrayLib;
@@ -245,3 +246,15 @@ testUnique([1], [1]);
 testUnique([1,2], [1,2]);
 testUnique([1,1,3,0,1,2,4,5,5,1], [1,3,0,2,4,5]);
 testUnique([1,1,1,1,1], [1]);
+
+//--------------------------------Union of two sets
+
+const testUnion = function(firstSet,secondSet, expectedOutput){
+  assert.deepEqual(union(firstSet, secondSet), expectedOutput);
+}
+
+testUnion([], [], []);
+testUnion([1], [1], [1]);
+testUnion([1,2], [1], [1,2]);
+testUnion([1,2,2], [1,3,3], [1,2,3]);
+testUnion([1,2,2,0,4,5,3], [1,3,3,5,8,3,0], [1,2,0,4,5,3,8]);

@@ -170,7 +170,17 @@ const unique = function(list){
   return result;
 }
 
+// get Union set for two given set
+const union = function(firstSet, secondSet){
+  let unionSet = firstSet.slice();
+  for(element of secondSet){
+    unionSet.push(element);
+  }
+  return unique(unionSet);
+}
+
 exports.calculateAverage = calculateAverage;
+exports.union = union;
 exports.unique = unique;
 exports.extractDigits = extractDigits;
 exports.isInAscendingOrder = isInAscendingOrder;
