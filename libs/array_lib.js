@@ -147,7 +147,18 @@ const isInDescendingOrder = function(list){
 const isInAscendingOrder = function(list){
   return isInSpecificOrder(list, isGreater);
 }
+
+// Extract digits of a number into an array
+const extractDigits = function(number){
+  let digits = number.toString().split("");
+  for(index in digits){
+    digits[index] = +digits[index];
+  }
+  return digits;
+}
+
 exports.calculateAverage = calculateAverage;
+exports.extractDigits = extractDigits;
 exports.isInAscendingOrder = isInAscendingOrder;
 exports.isInDescendingOrder = isInDescendingOrder;
 exports.indexOf = indexOf;

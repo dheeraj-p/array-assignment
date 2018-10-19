@@ -2,6 +2,7 @@ const assert = require("assert");
 const arrayLib = require("../libs/array_lib.js");
 
 const {extractElements} = arrayLib;
+const {extractDigits} = arrayLib;
 const {isInAscendingOrder} = arrayLib;
 const {isInDescendingOrder} = arrayLib;
 const {countNumbersByThreshold} = arrayLib;
@@ -221,3 +222,13 @@ testDescendingOrder([2,2,3],false);
 testDescendingOrder([2,3,5,6,3,26,6,2,4,6],false);
 testDescendingOrder(["abc","bcd","def","feg"],false);
 testDescendingOrder(["bcd","abc","def","feg"],false);
+
+//------------------------------- Extract digits from a number
+
+const testExtractDigits = function(input, expectedOutput){
+  assert.deepEqual(extractDigits(input), expectedOutput);
+}
+
+testExtractDigits(1, [1]);
+testExtractDigits(12, [1,2]);
+testExtractDigits(13025, [1,3,0,2,5]);
