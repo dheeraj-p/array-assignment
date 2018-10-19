@@ -94,32 +94,33 @@ const countEven = function(numbers){
   return evenNumbers.length;
 }
 
+// Check if left operand is greater than right operand
+const isGreater = function(leftOperand, rightOperand){
+  return leftOperand > rightOperand;
+}
+
+// Check if left operand is smaller than right operand
+const isSmaller = function(leftOperand, rightOperand){
+  return leftOperand < rightOperand;
+}
+
 // Count numbers above threshold in an array
-const countNumbersAbove = function(numbers, threshold){
+const countNumbersByThreshold = function(numbers, threshold, comparator){
   let count = 0;
   for(number of numbers){
-    if(number > threshold){
+    if(comparator(number, threshold)){
       count++;
     }
   }
   return count;
 }
 
-// Count numbers below threshold in an array
-const countNumbersBelow = function(numbers, threshold){
-  let count = 0;
-  for(number of numbers){
-    if(number < threshold){
-      count++;
-    }
-  }
-  return count;
-}
 
 exports.calculateAverage = calculateAverage;
-exports.countNumbersAbove = countNumbersAbove;
-exports.countNumbersBelow = countNumbersBelow;
+exports.countNumbersByThreshold = countNumbersByThreshold;
 exports.countEven = countEven;
+exports.isSmaller = isSmaller;
+exports.isGreater = isGreater;
 exports.countOdd = countOdd;
 exports.mapLengths = mapLengths;
 exports.extractElements = extractElements;
