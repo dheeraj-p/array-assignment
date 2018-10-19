@@ -115,8 +115,21 @@ const countNumbersByThreshold = function(numbers, threshold, comparator){
   return count;
 }
 
+// Find the index of a given element in an array
+const indexOf = function(element, list){
+  let result = -1;
+  for(let index = 0; index < list.length; index++){
+    let isElementFound = (element == list[index]);
+    if(isElementFound){
+      result = index;
+      return index;
+    }
+  }
+  return result;
+}
 
 exports.calculateAverage = calculateAverage;
+exports.indexOf = indexOf;
 exports.countNumbersByThreshold = countNumbersByThreshold;
 exports.countEven = countEven;
 exports.isSmaller = isSmaller;

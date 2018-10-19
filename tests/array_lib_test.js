@@ -4,6 +4,7 @@ const arrayLib = require("../libs/array_lib.js");
 const {extractElements} = arrayLib;
 const {countNumbersByThreshold} = arrayLib;
 const {isSmaller} = arrayLib;
+const {indexOf} = arrayLib;
 const {isGreater} = arrayLib;
 const {countOdd} = arrayLib;
 const {countEven} = arrayLib;
@@ -177,3 +178,16 @@ testCountBelow([1],2,1);
 testCountBelow([2],2,0);
 testCountBelow([2,3],2,0);
 testCountBelow([2,3,5,6,3,26,6,2,4,6],4,4);
+
+//-------------------------------Index of a element in array
+
+const testIndexOf = function(input, element, expectedOutput){
+  assert.equal(indexOf(element, input), expectedOutput);
+}
+
+testIndexOf([],2,-1);
+testIndexOf([1],0,-1);
+testIndexOf([2],2,0);
+testIndexOf([2,3],3,1);
+testIndexOf([2,3,5,6,3,26,6,2,4,6],4,8);
+testIndexOf(["abc","bcd","def","feg"],"bcd",1);
