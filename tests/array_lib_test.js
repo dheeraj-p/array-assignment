@@ -2,6 +2,7 @@ const assert = require("assert");
 const arrayLib = require("../libs/array_lib.js");
 
 const {extractElements} = arrayLib;
+const {partition} = arrayLib;
 const {zip} = arrayLib;
 const {isSubset} = arrayLib;
 const {getDifference} = arrayLib;
@@ -310,3 +311,14 @@ testZip([1], [1], [[1,1]]);
 testZip([1,2], [1], [[1,1]]);
 testZip([1,2,3], [1,2,4], [[1,1],[2,2],[3,4]]);
 testZip([1,2,2,0,4,9,5,3,8], [1,3,10,5,3,0], [[1,1],[2,3],[2,10],[0,5],[4,3], [9,0]]);
+
+//--------------------------------Create partition of an array
+
+const testPartition = function(input, pivot, expectedOutput){
+  assert.deepEqual(partition(input, pivot), expectedOutput);
+}
+
+testPartition([], 4, [[],[]]);
+testPartition([1], 1, [[1],[]]);
+testPartition([1,2], [1], [[1],[2]]);
+testPartition([1,2,3], 2, [[1,2],[3]]);

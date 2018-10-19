@@ -227,7 +227,21 @@ const zip = function(firstList, secondList){
   return result;
 }
 
+// Partition an array into to patitions consisting of elements below and above than given number
+const partition = function(numbers, pivot){
+  let result = [[],[]];
+  for(let number of numbers){
+    let indexToPushIn = 1;
+    if(number <= pivot){
+      indexToPushIn = 0;
+    }
+    result[indexToPushIn].push(number);
+  }
+  return result;
+}
+
 exports.calculateAverage = calculateAverage;
+exports.partition = partition;
 exports.zip = zip;
 exports.isSubset = isSubset;
 exports.getIntersection = getIntersection;
