@@ -138,8 +138,19 @@ const isInAscendingOrder = function(list){
   return true;
 }
 
+// Check whether if a list is in descending order or not
+const isInDescendingOrder = function(list){
+  for(let index = 0; index < list.length -1; index++){
+    if(list[index] < list[index +1]){
+      return false;
+    }
+  }
+  return true;
+}
+
 exports.calculateAverage = calculateAverage;
 exports.isInAscendingOrder = isInAscendingOrder;
+exports.isInDescendingOrder = isInDescendingOrder;
 exports.indexOf = indexOf;
 exports.countNumbersByThreshold = countNumbersByThreshold;
 exports.countEven = countEven;

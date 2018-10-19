@@ -3,6 +3,7 @@ const arrayLib = require("../libs/array_lib.js");
 
 const {extractElements} = arrayLib;
 const {isInAscendingOrder} = arrayLib;
+const {isInDescendingOrder} = arrayLib;
 const {countNumbersByThreshold} = arrayLib;
 const {isSmaller} = arrayLib;
 const {indexOf} = arrayLib;
@@ -206,3 +207,17 @@ testAscendingOrder([2,2,3],true);
 testAscendingOrder([2,3,5,6,3,26,6,2,4,6],false);
 testAscendingOrder(["abc","bcd","def","feg"],true);
 testAscendingOrder(["bcd","abc","def","feg"],false);
+
+//-------------------------------Check if a list is in descending order or not
+
+const testDescendingOrder = function(input, expectedOutput){
+  assert.equal(isInDescendingOrder(input), expectedOutput);
+}
+
+testDescendingOrder([],true);
+testDescendingOrder([3,2,1],true);
+testDescendingOrder([2,1],true);
+testDescendingOrder([2,2,3],false);
+testDescendingOrder([2,3,5,6,3,26,6,2,4,6],false);
+testDescendingOrder(["abc","bcd","def","feg"],false);
+testDescendingOrder(["bcd","abc","def","feg"],false);
