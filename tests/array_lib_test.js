@@ -2,6 +2,7 @@ const assert = require("assert");
 const arrayLib = require("../libs/array_lib.js");
 
 const {extractElements} = arrayLib;
+const {isInAscendingOrder} = arrayLib;
 const {countNumbersByThreshold} = arrayLib;
 const {isSmaller} = arrayLib;
 const {indexOf} = arrayLib;
@@ -191,3 +192,17 @@ testIndexOf([2],2,0);
 testIndexOf([2,3],3,1);
 testIndexOf([2,3,5,6,3,26,6,2,4,6],4,8);
 testIndexOf(["abc","bcd","def","feg"],"bcd",1);
+
+//-------------------------------Check if a list is in ascending order or not
+
+const testAscendingOrder = function(input, expectedOutput){
+  assert.equal(isInAscendingOrder(input), expectedOutput);
+}
+
+testAscendingOrder([],true);
+testAscendingOrder([1,2,3],true);
+testAscendingOrder([2,1],false);
+testAscendingOrder([2,2,3],true);
+testAscendingOrder([2,3,5,6,3,26,6,2,4,6],false);
+testAscendingOrder(["abc","bcd","def","feg"],true);
+testAscendingOrder(["bcd","abc","def","feg"],false);
