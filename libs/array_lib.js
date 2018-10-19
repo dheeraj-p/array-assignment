@@ -4,8 +4,8 @@ const extractElements = function(numbers, type){
   let types = ["even", "odd"];
   for(let number of numbers){
     let remainder = number % 2;
-    let categoryOfNumber = types[remainder];
-    extractedElements[categoryOfNumber].push(number);
+    let typeOfNumber = types[remainder];
+    extractedElements[typeOfNumber].push(number);
   }
   return extractedElements[type];
 }
@@ -204,7 +204,6 @@ const getDifference = function(firstSet, secondSet){
 }
 
 //Check if second set is proper subset of first set
-
 const isSubset = function(superSet, subsetCandidate){
   for(let element of subsetCandidate){
     let isPresentInSuperSet = superSet.includes(element);
@@ -215,7 +214,21 @@ const isSubset = function(superSet, subsetCandidate){
   return true;
 }
 
+// Create a new array which contains the correspondig elements of two arrays as array
+const zip = function(firstList, secondList){
+  let result = [];
+  let leastLength = Math.min(firstList.length, secondList.length);
+  for(let index = 0; index < leastLength; index++){
+    let zippedElements = [];
+    zippedElements.push(firstList[index]);
+    zippedElements.push(secondList[index]);
+    result.push(zippedElements);
+  }
+  return result;
+}
+
 exports.calculateAverage = calculateAverage;
+exports.zip = zip;
 exports.isSubset = isSubset;
 exports.getIntersection = getIntersection;
 exports.getDifference = getDifference;
