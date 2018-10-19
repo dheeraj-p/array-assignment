@@ -2,6 +2,7 @@ const assert = require("assert");
 const arrayLib = require("../libs/array_lib.js");
 
 const {extractElements} = arrayLib;
+const {rotate} = arrayLib;
 const {partition} = arrayLib;
 const {zip} = arrayLib;
 const {isSubset} = arrayLib;
@@ -322,3 +323,15 @@ testPartition([], 4, [[],[]]);
 testPartition([1], 1, [[1],[]]);
 testPartition([1,2], [1], [[1],[2]]);
 testPartition([1,2,3], 2, [[1,2],[3]]);
+
+//--------------------------------Rotate array
+
+const testRotate = function(input, pivot, expectedOutput){
+  assert.deepEqual(rotate(input, pivot), expectedOutput);
+}
+
+testRotate([],4,[]);
+testRotate([1],0,[1]);
+testRotate([1],1,[1]);
+testRotate([1,2,3],1,[2,3,1]);
+testRotate([1,2,3,3,4,5,6,3,25,6],3,[3,4,5,6,3,25,6,1,2,3]);

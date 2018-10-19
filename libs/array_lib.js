@@ -240,6 +240,18 @@ const partition = function(numbers, pivot){
   return result;
 }
 
+// Rotate array on a pivot index
+const rotate = function(list, pivot){
+  let result = list.slice();
+  
+  for(let iteration = list.length -1 ; iteration >= pivot; iteration--){
+    let poppedElement = result.pop();
+    result.unshift(poppedElement);
+  }
+  return result;
+}
+
+exports.rotate = rotate;
 exports.calculateAverage = calculateAverage;
 exports.partition = partition;
 exports.zip = zip;
