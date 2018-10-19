@@ -94,7 +94,31 @@ const countEven = function(numbers){
   return evenNumbers.length;
 }
 
+// Count numbers above threshold in an array
+const countNumbersAbove = function(numbers, threshold){
+  let count = 0;
+  for(number of numbers){
+    if(number > threshold){
+      count++;
+    }
+  }
+  return count;
+}
+
+// Count numbers below threshold in an array
+const countNumbersBelow = function(numbers, threshold){
+  let count = 0;
+  for(number of numbers){
+    if(number < threshold){
+      count++;
+    }
+  }
+  return count;
+}
+
 exports.calculateAverage = calculateAverage;
+exports.countNumbersAbove = countNumbersAbove;
+exports.countNumbersBelow = countNumbersBelow;
 exports.countEven = countEven;
 exports.countOdd = countOdd;
 exports.mapLengths = mapLengths;
