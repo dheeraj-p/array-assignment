@@ -2,6 +2,7 @@ const assert = require("assert");
 const arrayLib = require("../libs/array_lib.js");
 
 const {extractElements} = arrayLib;
+const {getIntersection} = arrayLib;
 const {unique} = arrayLib;
 const {union} = arrayLib;
 const {extractDigits} = arrayLib;
@@ -258,3 +259,15 @@ testUnion([1], [1], [1]);
 testUnion([1,2], [1], [1,2]);
 testUnion([1,2,2], [1,3,3], [1,2,3]);
 testUnion([1,2,2,0,4,5,3], [1,3,3,5,8,3,0], [1,2,0,4,5,3,8]);
+
+//--------------------------------Intersection of two sets
+
+const testIntersection = function(firstSet,secondSet, expectedOutput){
+  assert.deepEqual(getIntersection(firstSet, secondSet), expectedOutput);
+}
+
+testIntersection([], [], []);
+testIntersection([1], [1], [1]);
+testIntersection([1,2], [1], [1]);
+testIntersection([1,2,3], [1,3,3], [1,3]);
+testIntersection([1,2,2,0,4,5,3], [1,3,3,5,8,3,0], [1,0,5,3]);

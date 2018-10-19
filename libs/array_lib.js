@@ -107,7 +107,7 @@ const isSmaller = function(leftOperand, rightOperand){
 // Count numbers above threshold in an array
 const countNumbersByThreshold = function(numbers, threshold, comparator){
   let count = 0;
-  for(number of numbers){
+  for(let number of numbers){
     if(comparator(number, threshold)){
       count++;
     }
@@ -151,7 +151,7 @@ const isInAscendingOrder = function(list){
 // Extract digits of a number into an array
 const extractDigits = function(number){
   let digits = number.toString().split("");
-  for(index in digits){
+  for(let index in digits){
     digits[index] = +digits[index];
   }
   return digits;
@@ -161,7 +161,7 @@ const extractDigits = function(number){
 
 const unique = function(list){
   let result = [];
-  for(element of list){
+  for(let element of list){
     let isAlreadyPresent = result.includes(element);
     if(!isAlreadyPresent){
       result.push(element);
@@ -170,16 +170,29 @@ const unique = function(list){
   return result;
 }
 
-// get Union set for two given set
+// get Union set for two given sets
 const union = function(firstSet, secondSet){
   let unionSet = firstSet.slice();
-  for(element of secondSet){
+  for(let element of secondSet){
     unionSet.push(element);
   }
   return unique(unionSet);
 }
 
+//get Intersection set of two sets
+const getIntersection = function(firstSet, secondSet){
+  let intersectionSet = [];
+  for(let element of firstSet){
+    let isPresentInSecondSet = secondSet.includes(element);
+    if(isPresentInSecondSet){
+      intersectionSet.push(element);
+    }
+  }
+  return intersectionSet;
+}
+
 exports.calculateAverage = calculateAverage;
+exports.getIntersection = getIntersection;
 exports.union = union;
 exports.unique = unique;
 exports.extractDigits = extractDigits;
