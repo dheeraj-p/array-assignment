@@ -188,11 +188,24 @@ const getIntersection = function(firstSet, secondSet){
       intersectionSet.push(element);
     }
   }
-  return intersectionSet;
+  return unique(intersectionSet);
+}
+
+//get Difference of two sets
+const getDifference = function(firstSet, secondSet){
+  let differenceSet = [];
+  for(let element of firstSet){
+    let isPresentInSecondSet = secondSet.includes(element);
+    if(!isPresentInSecondSet){
+      differenceSet.push(element);
+    }
+  }
+  return unique(differenceSet);
 }
 
 exports.calculateAverage = calculateAverage;
 exports.getIntersection = getIntersection;
+exports.getDifference = getDifference;
 exports.union = union;
 exports.unique = unique;
 exports.extractDigits = extractDigits;

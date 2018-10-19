@@ -2,6 +2,7 @@ const assert = require("assert");
 const arrayLib = require("../libs/array_lib.js");
 
 const {extractElements} = arrayLib;
+const {getDifference} = arrayLib;
 const {getIntersection} = arrayLib;
 const {unique} = arrayLib;
 const {union} = arrayLib;
@@ -271,3 +272,15 @@ testIntersection([1], [1], [1]);
 testIntersection([1,2], [1], [1]);
 testIntersection([1,2,3], [1,3,3], [1,3]);
 testIntersection([1,2,2,0,4,5,3], [1,3,3,5,8,3,0], [1,0,5,3]);
+
+//--------------------------------Difference between two array
+
+const testDifference = function(firstList,secondList, expectedOutput){
+  assert.deepEqual(getDifference(firstList, secondList), expectedOutput);
+}
+
+testDifference([], [], []);
+testDifference([1], [1], []);
+testDifference([1,2], [1], [2]);
+testDifference([1,2,3], [1,3,3], [2]);
+testDifference([1,2,2,0,4,9,5,3,8], [1,3,3,5,3,0], [2,4,9,8]);
