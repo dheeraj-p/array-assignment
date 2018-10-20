@@ -1,7 +1,8 @@
 const assert = require("assert");
 const arrayLib = require("../libs/array_lib.js");
 
-const {extractElements} = arrayLib;
+const {extractEvenNumbers} = arrayLib;
+const {extractOddNumbers} = arrayLib;
 const {rotate} = arrayLib;
 const {partition} = arrayLib;
 const {zip} = arrayLib;
@@ -28,18 +29,27 @@ const {extractAlternatingElements} = arrayLib;
 const {reverse} = arrayLib;
 const {sum} = arrayLib;
 
-//------------------------------Test for extractElements()
-const testExractElements = function(input, type, expectedOutput){
-  assert.deepEqual(extractElements(input, type), expectedOutput);
+//------------------------------Test for extractOddNumbers()
+const testExtractOdd = function(input, expectedOutput){
+  assert.deepEqual(extractOddNumbers(input), expectedOutput);
 }
 
-testExractElements([],"even", []);
-testExractElements([],"odd", []);
-testExractElements([1],"odd", [1]);
-testExractElements([1],"even", []);
-testExractElements([2],"even", [2]);
-testExractElements([1,2,3,4,43],"odd", [1,3,43]);
-testExractElements([1,2,3,4,43,3,543,6,3,3,2],"even", [2,4,6,2]);
+testExtractOdd([], []);
+testExtractOdd([1], [1]);
+testExtractOdd([5,6,3], [5,3]);
+testExtractOdd([1,2,3,4,43],[1,3,43]);
+testExtractOdd([-3,-1,0,1,2,3,4,43],[-3,-1,1,3,43]);
+
+//------------------------------Test for extractEvenNumbers()
+const testExtractEven = function(input, expectedOutput){
+  assert.deepEqual(extractEvenNumbers(input), expectedOutput);
+}
+
+testExtractEven([], []);
+testExtractEven([1], []);
+testExtractEven([5,6,3], [6]);
+testExtractEven([1,2,3,4,43],[2,4]);
+testExtractEven([-3,-1,0,1,2,3,4,43],[0,2,4]);
 
 //-------------------------------Sum of Numbers
 

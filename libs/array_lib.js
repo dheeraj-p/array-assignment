@@ -3,11 +3,27 @@ const extractElements = function(numbers, type){
   let extractedElements = {even : [], odd : []};
   let types = ["even", "odd"];
   for(let number of numbers){
-    let remainder = number % 2;
+    let remainder = Math.abs(number % 2);
     let typeOfNumber = types[remainder];
     extractedElements[typeOfNumber].push(number);
   }
   return extractedElements[type];
+}
+
+const isEven = function(number){
+  return (number % 2 == 0);
+}
+
+const isOdd = function(number){
+  return !isEven(number);
+}
+
+const extractEvenNumbers = function(numbers){
+  return numbers.filter(isEven);
+}
+
+const extractOddNumbers = function(numbers){
+  return numbers.filter(isOdd);
 }
 
 // Calculate the result of numbers in an array
@@ -270,7 +286,8 @@ exports.isSmaller = isSmaller;
 exports.isGreater = isGreater;
 exports.countOdd = countOdd;
 exports.mapLengths = mapLengths;
-exports.extractElements = extractElements;
+exports.extractEvenNumbers = extractEvenNumbers;
+exports.extractOddNumbers = extractOddNumbers;
 exports.sum = sum;
 exports.reverse = reverse;
 exports.extractAlternatingElements = extractAlternatingElements;
