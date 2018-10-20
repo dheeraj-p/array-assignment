@@ -195,13 +195,9 @@ const getIntersection = function(firstSet, secondSet){
 
 //get Difference of two sets
 const getDifference = function(firstSet, secondSet){
-  let differenceSet = [];
-  for(let element of firstSet){
-    let isPresentInSecondSet = secondSet.includes(element);
-    if(!isPresentInSecondSet){
-      differenceSet.push(element);
-    }
-  }
+  let differenceSet = firstSet.filter(function(element){
+    return !secondSet.includes(element);
+  });
   return unique(differenceSet);
 }
 
