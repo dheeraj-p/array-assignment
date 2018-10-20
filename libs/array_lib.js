@@ -47,11 +47,9 @@ const reverse = function(source){
 
 // Extract every second element from an array
 const extractAlternatingElements = function(elements){
-  let extractedElements = [];
-  for(let index = 0; index<elements.length; index += 2){
-    extractedElements.push(elements[index]);
-  }
-  return extractedElements;
+  return elements.filter(function(e, index){ 
+    return index % 2 == 0;
+  });
 }
 
 // Create fibonacci series upto given limit
