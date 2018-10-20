@@ -26,13 +26,14 @@ const extractOddNumbers = function(numbers){
   return numbers.filter(isOdd);
 }
 
-// Calculate the result of numbers in an array
-const sum = function(numbers){
-  let result = 0;
-  for(let number of numbers){
-    result = result + number;
-  }
-  return result;
+// Calculate the sum of two numbers
+const sum = function(firstNumber, secondNumber){
+  return firstNumber + secondNumber;
+}
+
+// Calculate the sum of numbers in an array
+const addNumbers = function(numbers){
+  return numbers.reduce(sum,0);
 }
 
 // Reverse the order of an array
@@ -86,7 +87,7 @@ const extractElement = function(numbers, selector){
 // Calculate average of given numbers
 const calculateAverage = function(numbers){
   let numberOfElements = numbers.length;
-  return sum(numbers)/numberOfElements;
+  return addNumbers(numbers)/numberOfElements;
 }
 
 // Map the lengths of strings in a source array.
@@ -288,7 +289,7 @@ exports.countOdd = countOdd;
 exports.mapLengths = mapLengths;
 exports.extractEvenNumbers = extractEvenNumbers;
 exports.extractOddNumbers = extractOddNumbers;
-exports.sum = sum;
+exports.addNumbers = addNumbers;
 exports.reverse = reverse;
 exports.extractAlternatingElements = extractAlternatingElements;
 exports.generateFibonacciSeries = generateFibonacciSeries;

@@ -27,7 +27,7 @@ const {generateFibonacciSeries} = arrayLib;
 const {generateReversedFibSeries} = arrayLib;
 const {extractAlternatingElements} = arrayLib;
 const {reverse} = arrayLib;
-const {sum} = arrayLib;
+const {addNumbers} = arrayLib;
 
 //------------------------------Test for extractOddNumbers()
 const testExtractOdd = function(input, expectedOutput){
@@ -53,12 +53,12 @@ testExtractEven([-3,-1,0,1,2,3,4,43],[0,2,4]);
 
 //-------------------------------Sum of Numbers
 
-assert.equal(sum([]), 0);
-assert.equal(sum([1]), 1);
-assert.equal(sum([1,2]), 3);
-assert.equal(sum([-1,1]), 0);
-assert.equal(sum([-1,2,1]), 2);
-assert.equal(sum([1,2,3,4,5,-5,2,4]), 16);
+assert.equal(addNumbers([]), 0);
+assert.equal(addNumbers([1]), 1);
+assert.equal(addNumbers([1,2]), 3);
+assert.equal(addNumbers([-1,1]), 0);
+assert.equal(addNumbers([-1,2,1]), 2);
+assert.equal(addNumbers([1,2,3,4,5,-5,2,4]), 16);
 
 //-------------------------------Reverse an array
 
