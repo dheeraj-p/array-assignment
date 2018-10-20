@@ -179,9 +179,7 @@ const unique = function(list){
 // get Union set for two given sets
 const union = function(firstSet, secondSet){
   let unionSet = firstSet.slice();
-  for(let element of secondSet){
-    unionSet.push(element);
-  }
+  secondSet.forEach(function(element){ unionSet.push(element);});
   return unique(unionSet);
 }
 
