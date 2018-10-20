@@ -156,10 +156,7 @@ const isInAscendingOrder = function(list){
 // Extract digits of a number into an array
 const extractDigits = function(number){
   let digits = number.toString().split("");
-  for(let index in digits){
-    digits[index] = +digits[index];
-  }
-  return digits;
+  return digits.map(function(element){ return +element;});
 }
 
 // Get all unique elements from an array
