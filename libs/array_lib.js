@@ -88,11 +88,10 @@ const calculateAverage = function(numbers){
 
 // Map the lengths of strings in a source array.
 const mapLengths = function(source){
-  let lengths = [];
-  for(let element of source){
-    lengths.push(element.length);
+  const getLength = function(element){
+    return element.length;
   }
-  return lengths;
+  return source.map(getLength);
 }
 
 // Count odd numbers in an array
