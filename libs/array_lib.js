@@ -167,19 +167,21 @@ const extractDigits = function(number){
 
 const unique = function(list){
   let result = [];
-  for(let element of list){
+  list.forEach(function(element){
     let isAlreadyPresent = result.includes(element);
     if(!isAlreadyPresent){
       result.push(element);
     }
-  }
+  });
   return result;
 }
 
 // get Union set for two given sets
 const union = function(firstSet, secondSet){
   let unionSet = firstSet.slice();
-  secondSet.forEach(function(element){ unionSet.push(element);});
+  secondSet.forEach(function(element){ 
+    unionSet.push(element);
+  });
   return unique(unionSet);
 }
 
