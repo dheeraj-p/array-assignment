@@ -112,6 +112,14 @@ const countNumbersAbove = function(numbers, threshold){
   return numbers.filter(isAbove).length;
 }
 
+// Count numbers above threshold in an array
+const countNumbersBelow = function(numbers, threshold){
+  const isBelow = function(number){
+    return number < threshold
+  }
+  return numbers.filter(isBelow).length;
+}
+
 // Find the index of a given element in an array
 const indexOf = function(element, list){
   let result = -1;
@@ -262,6 +270,7 @@ exports.isInAscendingOrder = isInAscendingOrder;
 exports.isInDescendingOrder = isInDescendingOrder;
 exports.indexOf = indexOf;
 exports.countNumbersAbove = countNumbersAbove;
+exports.countNumbersBelow = countNumbersBelow;
 exports.countEven = countEven;
 exports.isSmaller = isSmaller;
 exports.isGreater = isGreater;
