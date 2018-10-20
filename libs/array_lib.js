@@ -74,11 +74,13 @@ const calculateAverage = function(numbers){
   return addNumbers(numbers)/numberOfElements;
 }
 
+// Get length of a string
+const getLength = function(element){
+  return element.length;
+}
+
 // Map the lengths of strings in a source array.
 const mapLengths = function(source){
-  const getLength = function(element){
-    return element.length;
-  }
   return source.map(getLength);
 }
 
@@ -136,7 +138,9 @@ const indexOf = function(element, list){
 // Check whether if a list is in ascending order or not
 const isInSpecificOrder = function(list,comparator){
   for(let index = 0; index < list.length -1; index++){
-    if(comparator(list[index],list[index +1])){
+    let currentElement = list[index];
+    let nextElement = list[index + 1];
+    if(comparator(currentElement,nextElement)){
       return false;
     }
   }
