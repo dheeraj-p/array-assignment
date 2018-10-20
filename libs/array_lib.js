@@ -1,15 +1,3 @@
-// Extract even and odd numbers from an array of numbers
-const extractElements = function(numbers, type){
-  let extractedElements = {even : [], odd : []};
-  let types = ["even", "odd"];
-  for(let number of numbers){
-    let remainder = Math.abs(number % 2);
-    let typeOfNumber = types[remainder];
-    extractedElements[typeOfNumber].push(number);
-  }
-  return extractedElements[type];
-}
-
 const isEven = function(number){
   return (number % 2 == 0);
 }
@@ -96,13 +84,13 @@ const mapLengths = function(source){
 
 // Count odd numbers in an array
 const countOdd = function(numbers){
-  let oddNumbers = extractElements(numbers, "odd");
+  let oddNumbers = extractOddNumbers(numbers, "odd");
   return oddNumbers.length;
 }
 
 // Count even numbers in an array
 const countEven = function(numbers){
-  let evenNumbers = extractElements(numbers, "even");
+  let evenNumbers = extractEvenNumbers(numbers, "even");
   return evenNumbers.length;
 }
 
