@@ -211,13 +211,10 @@ const getDifference = function(firstSet, secondSet){
 
 //Check if second set is proper subset of first set
 const isSubset = function(superSet, subsetCandidate){
-  for(let element of subsetCandidate){
-    let isPresentInSuperSet = superSet.includes(element);
-    if(!isPresentInSuperSet){
-      return false;
-    }
+  let isPresentInSuperSet = function(element){
+    return superSet.includes(element);
   }
-  return true;
+  return subsetCandidate.every(isPresentInSuperSet);
 }
 
 // Create a new array which contains the correspondig elements of two arrays as array
