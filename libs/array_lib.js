@@ -187,13 +187,9 @@ const union = function(firstSet, secondSet){
 
 //get Intersection set of two sets
 const getIntersection = function(firstSet, secondSet){
-  let intersectionSet = [];
-  for(let element of firstSet){
-    let isPresentInSecondSet = secondSet.includes(element);
-    if(isPresentInSecondSet){
-      intersectionSet.push(element);
-    }
-  }
+  let intersectionSet = firstSet.filter(function(element){
+    return secondSet.includes(element);
+  });
   return unique(intersectionSet);
 }
 
