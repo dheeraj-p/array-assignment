@@ -38,11 +38,11 @@ const addNumbers = function(numbers){
 
 // Reverse the order of an array
 const reverse = function(source){
-  let result = [];
-  for(let index = source.length -1; index >= 0; index--){
-    result.push(source[index]);
-  }
-  return result;
+  let reversed = source.reduce(function(result, element){
+    result.unshift(element);
+    return result;
+  }, []);
+  return reversed;
 }
 
 // Extract every second element from an array
