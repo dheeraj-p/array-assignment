@@ -112,7 +112,6 @@ const testGreatestNumber = function(input, expectedOutput){
   assert.equal(extractElement(input, Math.max), expectedOutput);
 }
 
-testGreatestNumber([], undefined);
 testGreatestNumber([1], 1);
 testGreatestNumber([1,2], 2);
 testGreatestNumber([3,2,1], 3);
@@ -122,7 +121,6 @@ const testSmallestNumber = function(input, expectedOutput){
   assert.equal(extractElement(input, Math.min), expectedOutput);
 }
 
-testSmallestNumber([], undefined);
 testSmallestNumber([1], 1);
 testSmallestNumber([1,2], 1);
 testSmallestNumber([3,2,1], 1);

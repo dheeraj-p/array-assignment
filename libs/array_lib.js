@@ -74,12 +74,10 @@ const generateReversedFibSeries = function(numberOfTerms){
 
 // Find greatest number in a list
 const extractElement = function(numbers, selector){
-  let previousElement = numbers[0];
-  for(let index = 1; index < numbers.length;index++){
-    let currentElement = numbers[index];
-    previousElement = selector(previousElement, currentElement);
+  const selectElement = function(firstElement, secondElement){
+    return selector(firstElement, secondElement);
   }
-  return previousElement;
+  return numbers.reduce(selectElement);
 }
 
 // Calculate average of given numbers
@@ -258,7 +256,7 @@ const partition = function(numbers, pivot){
 // Rotate array on a pivot index
 const rotate = function(list, pivot){
   let result = list.slice();
-  
+
   for(let iteration = list.length -1 ; iteration >= pivot; iteration--){
     let poppedElement = result.pop();
     result.unshift(poppedElement);
