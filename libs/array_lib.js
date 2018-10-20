@@ -105,14 +105,11 @@ const isSmaller = function(leftOperand, rightOperand){
 }
 
 // Count numbers above threshold in an array
-const countNumbersByThreshold = function(numbers, threshold, comparator){
-  let count = 0;
-  for(let number of numbers){
-    if(comparator(number, threshold)){
-      count++;
-    }
+const countNumbersAbove = function(numbers, threshold){
+  const isAbove = function(number){
+    return number > threshold
   }
-  return count;
+  return numbers.filter(isAbove).length;
 }
 
 // Find the index of a given element in an array
@@ -264,7 +261,7 @@ exports.extractDigits = extractDigits;
 exports.isInAscendingOrder = isInAscendingOrder;
 exports.isInDescendingOrder = isInDescendingOrder;
 exports.indexOf = indexOf;
-exports.countNumbersByThreshold = countNumbersByThreshold;
+exports.countNumbersAbove = countNumbersAbove;
 exports.countEven = countEven;
 exports.isSmaller = isSmaller;
 exports.isGreater = isGreater;

@@ -14,7 +14,7 @@ const {union} = arrayLib;
 const {extractDigits} = arrayLib;
 const {isInAscendingOrder} = arrayLib;
 const {isInDescendingOrder} = arrayLib;
-const {countNumbersByThreshold} = arrayLib;
+const {countNumbersAbove} = arrayLib;
 const {isSmaller} = arrayLib;
 const {indexOf} = arrayLib;
 const {isGreater} = arrayLib;
@@ -177,7 +177,7 @@ testCountEven([2,3,4,5,9,0],3);
 //-------------------------------Count numbers above a threshold
 
 const testCountAbove = function(input, threshold, expectedOutput){
-  assert.equal(countNumbersByThreshold(input, threshold, isGreater), expectedOutput);
+  assert.equal(countNumbersAbove(input, threshold, isGreater), expectedOutput);
 }
 
 testCountAbove([],2,0);
@@ -188,15 +188,15 @@ testCountAbove([2,3,5,6,3,26,6,2,4,6],4,5);
 
 //-------------------------------Count numbers below a threshold
 
-const testCountBelow = function(input, threshold, expectedOutput){
-  assert.equal(countNumbersByThreshold(input, threshold, isSmaller), expectedOutput);
-}
-
-testCountBelow([],2,0);
-testCountBelow([1],2,1);
-testCountBelow([2],2,0);
-testCountBelow([2,3],2,0);
-testCountBelow([2,3,5,6,3,26,6,2,4,6],4,4);
+//const testCountBelow = function(input, threshold, expectedOutput){
+//  assert.equal(countNumbersAbove(input, threshold, isSmaller), expectedOutput);
+//}
+//
+//testCountBelow([],2,0);
+//testCountBelow([1],2,1);
+//testCountBelow([2],2,0);
+//testCountBelow([2,3],2,0);
+//testCountBelow([2,3,5,6,3,26,6,2,4,6],4,4);
 
 //-------------------------------Index of a element in array
 
