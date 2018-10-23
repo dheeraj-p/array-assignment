@@ -24,20 +24,26 @@ const addNumbers = function(numbers){
   return numbers.reduce(sum,0);
 }
 
+const unshift = function(list, elementToUnshift){
+  list.unshift(elementToUnshift);
+  return list;
+}
+
 // Reverse the order of an array
 const reverse = function(source){
-  let reversed = source.reduce(function(result, element){
-    result.unshift(element);
-    return result;
-  }, []);
+  let reversed = source.reduce(unshift, []);
   return reversed;
 }
 
 // Extract every second element from an array
 const extractAlternatingElements = function(elements){
-  return elements.filter(function(e, index){ 
-    return index % 2 == 0;
-  });
+  let result = [];
+  for(let index = 0; index < elements.length; index++){
+    if(index % 2 == 0){
+      result.push(elements[index]);
+    }
+  }
+  return result;
 }
 
 // Create fibonacci series upto given limit
@@ -157,47 +163,53 @@ const isInAscendingOrder = function(list){
   return isInSpecificOrder(list, isGreater);
 }
 
+const convertToNumber = function(string){
+  return +string;
+}
+
 // Extract digits of a number into an array
 const extractDigits = function(number){
   let digits = number.toString().split("");
-  return digits.map(function(element){ return +element;});
+  return digits.map(convertToNumber);
 }
 
 // Get all unique elements from an array
 
 const unique = function(list){
   let result = [];
-  list.forEach(function(element){
+  for(let element of list){
     let isAlreadyPresent = result.includes(element);
     if(!isAlreadyPresent){
       result.push(element);
     }
-  });
+  }
   return result;
 }
 
 // get Union set for two given sets
 const union = function(firstSet, secondSet){
   let unionSet = firstSet.slice();
-  secondSet.forEach(function(element){ 
+  for(let element of secondSet){ 
     unionSet.push(element);
-  });
+  };
   return unique(unionSet);
 }
 
 //get Intersection set of two sets
 const getIntersection = function(firstSet, secondSet){
-  let intersectionSet = firstSet.filter(function(element){
+  const isAlreadyPresent = function(element){
     return secondSet.includes(element);
-  });
+  }
+  let intersectionSet = firstSet.filter(isAlreadyPresent);
   return unique(intersectionSet);
 }
 
 //get Difference of two sets
 const getDifference = function(firstSet, secondSet){
-  let differenceSet = firstSet.filter(function(element){
+  const isNotAlreadyPresent = function(element){
     return !secondSet.includes(element);
-  });
+  }
+  let differenceSet = firstSet.filter(isNotAlreadyPresent);
   return unique(differenceSet);
 }
 
